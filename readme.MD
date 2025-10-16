@@ -3,7 +3,7 @@ tags: docker, comandos, contenedores, imágenes, tutorial, cheatsheet, devops, d
 -->
 Comandos docker
 
-docker pull 'name' por defecto la tomará de docker hub a menos que se especifique otro
+docker pull 'name' por defecto la tomará de docker hub a menos que se especifique otro  - descargar la imagen
 docker container run 'nombre_imagen' -  esto sirve para crear un contenedor de docker apartir de una imagen
 docker container --help - sirve para ver todos los comandos que se pueden ejecuttar en el contexto de los comandos de los contenedores
 
@@ -19,3 +19,15 @@ docker image --help para obtener la list de los comandos disponibles que hay sob
 
 docker image rm 'image_name' para eliminar una imagen en concreto
 
+docker container run -d -p:80:80 'image_name' - esto sirve para levantar una imagen de docker en el puerto 80:80
+
+Crear container de postgres -- docker container run --name test-postgres -dp 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword postgres
+
+
+--Escribir por lineas el comando en la terminal con '\' en powershell con  '`'
+
+docker container run `
+--name postgres-alpha `
+-e POSTGRES_PASSWORD=pass_test_at `
+-dp 5432:5432 `
+postgres
