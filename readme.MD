@@ -31,3 +31,12 @@ docker container run `
 -e POSTGRES_PASSWORD=pass_test_at `
 -dp 5432:5432 `
 postgres
+
+docker container run `
+--name world-db `
+-e MARIADB_USER=example-user `
+-e MARIADB_PASSWORD=user-password `
+-e MARIADB_ROOT_PASSWORD=root-secret-password `
+-e MARIADB_DATABASE=world-db `
+-dp 3306:3306 `
+mariadb:10.11.14-jammy
