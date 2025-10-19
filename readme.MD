@@ -91,3 +91,22 @@ docker container run `
 -p 8080:80 `
 --network world-app `
 phpmyadmin:5.2.0-apache
+
+#Binds section
+
+docker run `
+--name nest-app `
+-w /app `
+-p 80:3000 `
+-v "${PWD}:/app" `
+node:16-alpine3.16 `
+sh -c "npm install && npm run start:dev"
+
+#Este comando sirve para ver los logs de los contenedores
+docker container logs -f
+
+#Ejecutar terminal interactiva
+
+docker exec -it "container_id" /bin/sh
+
+cat - imprimir la información en la consola de la terminal interactiva
