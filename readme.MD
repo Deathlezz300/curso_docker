@@ -110,3 +110,25 @@ docker container logs -f
 docker exec -it "container_id" /bin/sh
 
 cat - imprimir la información en la consola de la terminal interactiva
+
+#Laboratorio docker hub images
+
+Montar la imagen de postgres
+
+docker container run `
+-d `
+--name postgres-db `
+-e POSTGRES_PASSWORD=123456 `
+-v postgres-db:/var/lib/postgresql/data `
+--network world-app `
+postgres:16-alpine
+
+Montar pgAdmin
+
+docker container run `
+--name pgAdmin `
+-e PGADMIN_DEFAULT_PASSWORD=123456 `
+-e PGADMIN_DEFAULT_EMAIL=superman@google.com `
+-dp 8080:80 `
+--network world-app `
+dpage/pgadmin4:6.17
